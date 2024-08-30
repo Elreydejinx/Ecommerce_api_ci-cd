@@ -1,11 +1,7 @@
 import os
+import app
 
-class DevelopmentConfig:
-    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://rootuser:Gitkodin2024$@localhost/bes_ecomm'
-    CACHE_TYPE = 'SimpleCache'
-    DEBUG = True
 
-class ProductionConfig:
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI') or 'sqlite:///app.db'
-    CACHE_TYPE = 'SimpleCache'
-    DEBUG = False
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://flask_api_150_gt4k_user:vqkhuEGJeVoddVdb83SIktC4LKzv35zC@dpg-cr4avcjv2p9s73cpie8g-a/flask_api_150_gt4k')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
